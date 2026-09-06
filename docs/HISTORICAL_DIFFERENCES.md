@@ -58,6 +58,11 @@ AE: RGB -> Resize(512,512). PV preparation: RGB -> `Image.resize((256,256))` wit
 ## ResNet
 Historical full PV uses ImageNet-pretrained ResNet-101 and fine-tunes it by default.
 
+The current repository default is `fine_tune_resnet=False`: backbone parameters
+are frozen, while the projection and affinity layers remain trainable. BatchNorm
+running statistics still follow the model's training/evaluation mode. The Python
+constructor accepts `fine_tune_resnet=True` to enable backbone parameter updates.
+
 ## AE
 Historical defaults: 512x512 RGB, 128-D latent, masked MSE where target > 0.05, Adam lr 0.001, batch size 8, 200 epochs. The later/final decoder reconstructs R/G and appends exactly zero B. AE latents are exported before DTA training and remain fixed.
 

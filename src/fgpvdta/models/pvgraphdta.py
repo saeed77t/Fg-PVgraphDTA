@@ -48,7 +48,7 @@ class PVGraphDTA(nn.Module):
         use_infonce: bool = True,
         resnet_variant: ResNetVariant = "resnet101",
         pretrained_resnet: bool = True,
-        fine_tune_resnet: bool = True,
+        fine_tune_resnet: bool = False,
         temperature: float = 0.07,
         n_output: int = 1,
     ):
