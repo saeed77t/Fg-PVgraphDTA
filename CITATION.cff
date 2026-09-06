@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript when using these methods."
+title: "FGgraphDTA and PVgraphDTA research implementation"
+type: software
+version: 1.0.0
+authors:
+  - family-names: Tahmasebi
+    given-names: Reza
+  - family-names: Mansoori
+    given-names: Eghbal
+  - family-names: Pishevar
+    given-names: Armin
+  - family-names: Mehrbaniyan
+    given-names: Abbas
+license: MIT

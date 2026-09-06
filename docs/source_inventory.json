@@ -1,0 +1,1374 @@
+[
+  {
+    "file": "#1 load data and crete molculear graph.ipynb",
+    "sha256": "d68dde42f1d18704ac63982a59466afe1646f106d9b86d890b58d3fa759d3133",
+    "code_cells": 13,
+    "definitions": [
+      {
+        "name": "load_and_prepare_data_from_csv",
+        "code_cell": 4
+      },
+      {
+        "name": "create_molecule_graphs",
+        "code_cell": 5
+      },
+      {
+        "name": "create_and_save_molecule_graphs",
+        "code_cell": 9
+      },
+      {
+        "name": "load_molecule_graph",
+        "code_cell": 10
+      },
+      {
+        "name": "plot_molecule_graph_with_summary_features",
+        "code_cell": 10
+      },
+      {
+        "name": "plot_molecule_graph_with_summary_features",
+        "code_cell": 11
+      },
+      {
+        "name": "save_molecule_graphs",
+        "code_cell": 12
+      }
+    ]
+  },
+  {
+    "file": "#2 Create Contact Maps.ipynb",
+    "sha256": "0994cd07d01052a1b98b74fc354113635ce460dc6451e012ab70dca9ca29cced",
+    "code_cells": 9,
+    "definitions": [
+      {
+        "name": "predict_single_protein",
+        "code_cell": 2
+      },
+      {
+        "name": "pconsc4Prediction",
+        "code_cell": 2
+      },
+      {
+        "name": "predict_single_protein",
+        "code_cell": 5
+      },
+      {
+        "name": "pconsc4Prediction",
+        "code_cell": 5
+      }
+    ]
+  },
+  {
+    "file": "#3 create graphs out of contact maps .ipynb",
+    "sha256": "72ea2d18aee3e1bc80c3139cae8ed98281baf1cf79aa05512c0589b3196f961f",
+    "code_cells": 20,
+    "definitions": [
+      {
+        "name": "extract_sequences_from_kiba",
+        "code_cell": 8
+      },
+      {
+        "name": "verify_sequence_length_with_contact_map",
+        "code_cell": 8
+      },
+      {
+        "name": "PSSM_calculation",
+        "code_cell": 12
+      },
+      {
+        "name": "residue_features",
+        "code_cell": 12
+      },
+      {
+        "name": "create_graph_from_contact_map",
+        "code_cell": 12
+      },
+      {
+        "name": "process_proteins",
+        "code_cell": 12
+      }
+    ]
+  },
+  {
+    "file": "#4 hadle missing ones .ipynb",
+    "sha256": "ba9a20d6aa940a797367360b253adcd0362ce01cbb4593016a011b99feee2979",
+    "code_cells": 7,
+    "definitions": []
+  },
+  {
+    "file": "#4.1   Preparing Dataset .ipynb",
+    "sha256": "6a05d7cd24f29f9c9d2627224b4b3aa01cbcc3088d790b5fce67996ff23db67d",
+    "code_cells": 5,
+    "definitions": [
+      {
+        "name": "load_sample",
+        "code_cell": 3
+      },
+      {
+        "name": "load_graph",
+        "code_cell": 4
+      },
+      {
+        "name": "prepare_dataset_individual_save_as_pt",
+        "code_cell": 4
+      }
+    ]
+  },
+  {
+    "file": "#5 Train GNNs.ipynb",
+    "sha256": "ac690e7a2a96261263bbfcd1fe5c254410c4e6133867bf7a1cb47d2fe15ca295",
+    "code_cells": 15,
+    "definitions": [
+      {
+        "name": "GNNNet",
+        "code_cell": 2
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 8
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 8
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 8
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 8
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 8
+      },
+      {
+        "name": "train_5fold_cross_validation",
+        "code_cell": 8
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 9
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 9
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 9
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 9
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 9
+      },
+      {
+        "name": "train_5fold_cross_validation",
+        "code_cell": 9
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 10
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 10
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 10
+      },
+      {
+        "name": "train_5fold_cross_validation",
+        "code_cell": 10
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 11
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 11
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 11
+      },
+      {
+        "name": "train_5fold_cross_validation",
+        "code_cell": 12
+      },
+      {
+        "name": "load_graph",
+        "code_cell": 13
+      },
+      {
+        "name": "prepare_dataset",
+        "code_cell": 13
+      }
+    ]
+  },
+  {
+    "file": "#5.1  Train Gnns .ipynb",
+    "sha256": "c0fcedbc9a1725e620c404bbd435d5e84217a89bd89d3d4bbd38a910022d7312",
+    "code_cells": 5,
+    "definitions": [
+      {
+        "name": "GCNLayer",
+        "code_cell": 1
+      },
+      {
+        "name": "MoleculeGNN",
+        "code_cell": 2
+      },
+      {
+        "name": "ProteinGNN",
+        "code_cell": 2
+      },
+      {
+        "name": "DTA_GNN",
+        "code_cell": 3
+      },
+      {
+        "name": "calculate_metrics",
+        "code_cell": 4
+      }
+    ]
+  },
+  {
+    "file": "#6 Distrbution Extraction for sampling.ipynb",
+    "sha256": "ae217cfdad06324323da5df90e3d3c9d3dd3cc87c5f9c7d8ade52db07deef5e4",
+    "code_cells": 5,
+    "definitions": [
+      {
+        "name": "load_features",
+        "code_cell": 1
+      },
+      {
+        "name": "visualize_feature_distributions",
+        "code_cell": 1
+      },
+      {
+        "name": "load_features",
+        "code_cell": 2
+      },
+      {
+        "name": "visualize_feature_distributions",
+        "code_cell": 2
+      },
+      {
+        "name": "load_features",
+        "code_cell": 3
+      },
+      {
+        "name": "visualize_feature_distributions",
+        "code_cell": 3
+      }
+    ]
+  },
+  {
+    "file": "(Soft bias )add weights to contact maps-Copy1.ipynb",
+    "sha256": "57b76b7b1c645d62120da90ae47b1bcb5bfafa8b25ce1ab7c7e94277f957d309",
+    "code_cells": 8,
+    "definitions": []
+  },
+  {
+    "file": "3riple-stream-gnn-cnn.ipynb",
+    "sha256": "3a15ed7b59a0e16829cdb01fcd1c9b62ad02e6bae994ad8be997ed8adc3ce045",
+    "code_cells": 7,
+    "definitions": [
+      {
+        "name": "resize_all_images",
+        "code_cell": 2
+      },
+      {
+        "name": "load_graph",
+        "code_cell": 2
+      },
+      {
+        "name": "prepare_dataset_individual_save_as_pt",
+        "code_cell": 2
+      },
+      {
+        "name": "ci_vectorized",
+        "code_cell": 3
+      },
+      {
+        "name": "mse_torch",
+        "code_cell": 3
+      },
+      {
+        "name": "pearson_torch",
+        "code_cell": 3
+      },
+      {
+        "name": "GNNNet",
+        "code_cell": 3
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 3
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 3
+      },
+      {
+        "name": "train_and_evaluate",
+        "code_cell": 3
+      },
+      {
+        "name": "plot_metrics",
+        "code_cell": 3
+      }
+    ]
+  },
+  {
+    "file": "add weights to contact maps.ipynb",
+    "sha256": "31c6828802a56ff2b02b90830ba9abda533b2ca06db984be1fe4861d8dbab008",
+    "code_cells": 6,
+    "definitions": []
+  },
+  {
+    "file": "baseline-molecular-graphs.ipynb",
+    "sha256": "d68dde42f1d18704ac63982a59466afe1646f106d9b86d890b58d3fa759d3133",
+    "code_cells": 13,
+    "definitions": [
+      {
+        "name": "load_and_prepare_data_from_csv",
+        "code_cell": 4
+      },
+      {
+        "name": "create_molecule_graphs",
+        "code_cell": 5
+      },
+      {
+        "name": "create_and_save_molecule_graphs",
+        "code_cell": 9
+      },
+      {
+        "name": "load_molecule_graph",
+        "code_cell": 10
+      },
+      {
+        "name": "plot_molecule_graph_with_summary_features",
+        "code_cell": 10
+      },
+      {
+        "name": "plot_molecule_graph_with_summary_features",
+        "code_cell": 11
+      },
+      {
+        "name": "save_molecule_graphs",
+        "code_cell": 12
+      }
+    ]
+  },
+  {
+    "file": "baseline-protein-graphs.ipynb",
+    "sha256": "72ea2d18aee3e1bc80c3139cae8ed98281baf1cf79aa05512c0589b3196f961f",
+    "code_cells": 20,
+    "definitions": [
+      {
+        "name": "extract_sequences_from_kiba",
+        "code_cell": 8
+      },
+      {
+        "name": "verify_sequence_length_with_contact_map",
+        "code_cell": 8
+      },
+      {
+        "name": "PSSM_calculation",
+        "code_cell": 12
+      },
+      {
+        "name": "residue_features",
+        "code_cell": 12
+      },
+      {
+        "name": "create_graph_from_contact_map",
+        "code_cell": 12
+      },
+      {
+        "name": "process_proteins",
+        "code_cell": 12
+      }
+    ]
+  },
+  {
+    "file": "CNN-GNN-model.ipynb",
+    "sha256": "bdbb76be91971264c23c41e563f8eef95e9d37f908c55b7af4c0802c615ab191",
+    "code_cells": 4,
+    "definitions": [
+      {
+        "name": "load_graph",
+        "code_cell": 2
+      },
+      {
+        "name": "prepare_dataset_individual_save_as_pt",
+        "code_cell": 2
+      },
+      {
+        "name": "ci_vectorized",
+        "code_cell": 3
+      },
+      {
+        "name": "mse_torch",
+        "code_cell": 3
+      },
+      {
+        "name": "pearson_torch",
+        "code_cell": 3
+      },
+      {
+        "name": "GNNNet",
+        "code_cell": 3
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 3
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 3
+      },
+      {
+        "name": "train_and_evaluate",
+        "code_cell": 3
+      },
+      {
+        "name": "plot_metrics",
+        "code_cell": 3
+      }
+    ]
+  },
+  {
+    "file": "contact-map-image-construction.ipynb",
+    "sha256": "0421791dd89d25f3f651d2db2eac04d7ee54e5b6e6cb78522021baa569728a65",
+    "code_cells": 2,
+    "definitions": [
+      {
+        "name": "sinusoidal_encoding",
+        "code_cell": 1
+      },
+      {
+        "name": "one_hot_seqs",
+        "code_cell": 1
+      },
+      {
+        "name": "normalize",
+        "code_cell": 1
+      }
+    ]
+  },
+  {
+    "file": "davis-autoencoder-variants.ipynb",
+    "sha256": "3730bf53ce47dce95b7dbe94e5ff15f9ab731ec708204bc36fdb717940a53eb3",
+    "code_cells": 3,
+    "definitions": [
+      {
+        "name": "ContactMapDataset",
+        "code_cell": 1
+      },
+      {
+        "name": "MaskedMSELoss",
+        "code_cell": 1
+      },
+      {
+        "name": "AE",
+        "code_cell": 1
+      },
+      {
+        "name": "ContactMapDataset",
+        "code_cell": 2
+      },
+      {
+        "name": "MaskedMSELoss",
+        "code_cell": 2
+      },
+      {
+        "name": "AE",
+        "code_cell": 2
+      }
+    ]
+  },
+  {
+    "file": "davis-pvgraphdta.ipynb",
+    "sha256": "fd2d0c197d95f0ef107bc093e3fba59ba279d199de15e15594e530c3569ffff3",
+    "code_cells": 20,
+    "definitions": [
+      {
+        "name": "load_graph",
+        "code_cell": 4
+      },
+      {
+        "name": "prepare_dataset_individual_save_as_pt",
+        "code_cell": 4
+      },
+      {
+        "name": "ci_vectorized",
+        "code_cell": 7
+      },
+      {
+        "name": "mse_torch",
+        "code_cell": 7
+      },
+      {
+        "name": "pearson_torch",
+        "code_cell": 7
+      },
+      {
+        "name": "GNNNet",
+        "code_cell": 7
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 7
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 7
+      },
+      {
+        "name": "train_and_evaluate",
+        "code_cell": 7
+      },
+      {
+        "name": "plot_metrics",
+        "code_cell": 7
+      }
+    ]
+  },
+  {
+    "file": "Eigen vecctors As PE.ipynb",
+    "sha256": "b34647a11e15aa74e2c07789fb5b0b1d222166330bdad2d49c40d5675bc24e52",
+    "code_cells": 2,
+    "definitions": [
+      {
+        "name": "compute_laplacian_eigenvector",
+        "code_cell": 1
+      },
+      {
+        "name": "normalize",
+        "code_cell": 1
+      }
+    ]
+  },
+  {
+    "file": "Explains of positional encoding.ipynb",
+    "sha256": "fd3c1740a932b0ce1acddc5c1b50acebbaf02c1ff59444182bfaefc6f93101dd",
+    "code_cells": 0,
+    "definitions": []
+  },
+  {
+    "file": "extract latents out of all outputs.ipynb",
+    "sha256": "d67b7996ca2bce71bc50d35af7ae359899f6e4b6df95f8f27af9ce28852cb57c",
+    "code_cells": 3,
+    "definitions": []
+  },
+  {
+    "file": "fork-of-ae-for-pe-onehot-contact-maps.ipynb",
+    "sha256": "3730bf53ce47dce95b7dbe94e5ff15f9ab731ec708204bc36fdb717940a53eb3",
+    "code_cells": 3,
+    "definitions": [
+      {
+        "name": "ContactMapDataset",
+        "code_cell": 1
+      },
+      {
+        "name": "MaskedMSELoss",
+        "code_cell": 1
+      },
+      {
+        "name": "AE",
+        "code_cell": 1
+      },
+      {
+        "name": "ContactMapDataset",
+        "code_cell": 2
+      },
+      {
+        "name": "MaskedMSELoss",
+        "code_cell": 2
+      },
+      {
+        "name": "AE",
+        "code_cell": 2
+      }
+    ]
+  },
+  {
+    "file": "functional-group-molecular-graphs.ipynb",
+    "sha256": "a45cca21c6149a284aa8a76663866fdce8722dc25e3c9341b4efc5b908583887",
+    "code_cells": 6,
+    "definitions": [
+      {
+        "name": "load_and_prepare_data_from_csv",
+        "code_cell": 1
+      },
+      {
+        "name": "create_molecule_graphs",
+        "code_cell": 1
+      },
+      {
+        "name": "create_and_save_molecule_graphs",
+        "code_cell": 1
+      },
+      {
+        "name": "load_molecule_graph",
+        "code_cell": 1
+      },
+      {
+        "name": "plot_molecule_graph_with_summary_features",
+        "code_cell": 1
+      },
+      {
+        "name": "load_and_prepare_data_from_csv",
+        "code_cell": 2
+      },
+      {
+        "name": "_cleanup_overlap",
+        "code_cell": 2
+      },
+      {
+        "name": "detect_fg_set",
+        "code_cell": 2
+      },
+      {
+        "name": "per_atom_fg_matrix",
+        "code_cell": 2
+      },
+      {
+        "name": "create_molecule_graphs",
+        "code_cell": 2
+      },
+      {
+        "name": "create_and_save_molecule_graphs",
+        "code_cell": 2
+      },
+      {
+        "name": "load_molecule_graph",
+        "code_cell": 2
+      },
+      {
+        "name": "plot_molecule_graph_with_summary_features",
+        "code_cell": 2
+      }
+    ]
+  },
+  {
+    "file": "functional-group-protein-graphs.ipynb",
+    "sha256": "dfef023d945ec7cd74c4095731c8cb017cf64d2b8094a6f371508a29325e5cdd",
+    "code_cells": 8,
+    "definitions": [
+      {
+        "name": "_cleanup_overlap",
+        "code_cell": 6
+      },
+      {
+        "name": "detect_fg_set",
+        "code_cell": 6
+      },
+      {
+        "name": "aa_to_mol",
+        "code_cell": 6
+      },
+      {
+        "name": "residue_fg_vector",
+        "code_cell": 6
+      },
+      {
+        "name": "extract_sequences_from_davis",
+        "code_cell": 6
+      },
+      {
+        "name": "verify_sequence_length_with_contact_map",
+        "code_cell": 6
+      },
+      {
+        "name": "PSSM_calculation",
+        "code_cell": 6
+      },
+      {
+        "name": "residue_features",
+        "code_cell": 6
+      },
+      {
+        "name": "create_graph_from_contact_map",
+        "code_cell": 6
+      },
+      {
+        "name": "process_proteins",
+        "code_cell": 6
+      }
+    ]
+  },
+  {
+    "file": "gnn-cnn-random-validation-new-train-test.ipynb",
+    "sha256": "fd2d0c197d95f0ef107bc093e3fba59ba279d199de15e15594e530c3569ffff3",
+    "code_cells": 20,
+    "definitions": [
+      {
+        "name": "load_graph",
+        "code_cell": 4
+      },
+      {
+        "name": "prepare_dataset_individual_save_as_pt",
+        "code_cell": 4
+      },
+      {
+        "name": "ci_vectorized",
+        "code_cell": 7
+      },
+      {
+        "name": "mse_torch",
+        "code_cell": 7
+      },
+      {
+        "name": "pearson_torch",
+        "code_cell": 7
+      },
+      {
+        "name": "GNNNet",
+        "code_cell": 7
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 7
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 7
+      },
+      {
+        "name": "train_and_evaluate",
+        "code_cell": 7
+      },
+      {
+        "name": "plot_metrics",
+        "code_cell": 7
+      }
+    ]
+  },
+  {
+    "file": "GNN_NOTE_BOOK_DTA(1).ipynb",
+    "sha256": "8d87ead98dbf7dc9b43cb397de2c38e94431308123892d4be7064c58bb0b9482",
+    "code_cells": 17,
+    "definitions": [
+      {
+        "name": "GNNNet",
+        "code_cell": 3
+      },
+      {
+        "name": "adjust_state_dict",
+        "code_cell": 4
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 4
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 4
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 4
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 4
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 4
+      },
+      {
+        "name": "train_5fold_cross_validation",
+        "code_cell": 4
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 5
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 5
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 5
+      },
+      {
+        "name": "get_spearman",
+        "code_cell": 5
+      },
+      {
+        "name": "get_rmse",
+        "code_cell": 5
+      },
+      {
+        "name": "get_rm2",
+        "code_cell": 5
+      },
+      {
+        "name": "adjust_state_dict",
+        "code_cell": 5
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 5
+      },
+      {
+        "name": "predicting",
+        "code_cell": 5
+      },
+      {
+        "name": "main",
+        "code_cell": 5
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 8
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 8
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 8
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 8
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 8
+      },
+      {
+        "name": "train_5fold_cross_validation",
+        "code_cell": 8
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 9
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 9
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 9
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 9
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 9
+      },
+      {
+        "name": "train_5fold_cross_validation",
+        "code_cell": 9
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 10
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 10
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 10
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 10
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 10
+      },
+      {
+        "name": "train_5fold_cross_validation",
+        "code_cell": 10
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 11
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 11
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 11
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 11
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 11
+      },
+      {
+        "name": "train_5fold_cross_validation",
+        "code_cell": 11
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 12
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 12
+      },
+      {
+        "name": "get_mse",
+        "code_cell": 12
+      },
+      {
+        "name": "get_ci",
+        "code_cell": 12
+      },
+      {
+        "name": "get_pearson",
+        "code_cell": 12
+      },
+      {
+        "name": "train_5fold_cross_validation",
+        "code_cell": 12
+      }
+    ]
+  },
+  {
+    "file": "kiba-ae-for-pe-onehot-contact-maps (1).ipynb",
+    "sha256": "d4ef03624f51de7bd5a1dab79ed05f7f1034de529214504a649ddf27e1dfbc05",
+    "code_cells": 3,
+    "definitions": [
+      {
+        "name": "ContactMapDataset",
+        "code_cell": 2
+      },
+      {
+        "name": "MaskedMSELoss",
+        "code_cell": 2
+      },
+      {
+        "name": "AE",
+        "code_cell": 2
+      }
+    ]
+  },
+  {
+    "file": "kiba-autoencoder.ipynb",
+    "sha256": "d4ef03624f51de7bd5a1dab79ed05f7f1034de529214504a649ddf27e1dfbc05",
+    "code_cells": 3,
+    "definitions": [
+      {
+        "name": "ContactMapDataset",
+        "code_cell": 2
+      },
+      {
+        "name": "MaskedMSELoss",
+        "code_cell": 2
+      },
+      {
+        "name": "AE",
+        "code_cell": 2
+      }
+    ]
+  },
+  {
+    "file": "kiba-fggragpdta-final.ipynb",
+    "sha256": "a1d23f57976ce30e8f546f3d361a6c0b11f6c839134023184fbb8bcfd2a8e853",
+    "code_cells": 9,
+    "definitions": [
+      {
+        "name": "load_graph",
+        "code_cell": 2
+      },
+      {
+        "name": "prepare_dataset_individual_save_as_pt",
+        "code_cell": 2
+      },
+      {
+        "name": "ci_vectorized",
+        "code_cell": 8
+      },
+      {
+        "name": "mse_torch",
+        "code_cell": 8
+      },
+      {
+        "name": "pearson_torch",
+        "code_cell": 8
+      },
+      {
+        "name": "GNNNet",
+        "code_cell": 8
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 8
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 8
+      },
+      {
+        "name": "train_and_evaluate",
+        "code_cell": 8
+      },
+      {
+        "name": "plot_metrics",
+        "code_cell": 8
+      }
+    ]
+  },
+  {
+    "file": "kiba-fggraphdta.ipynb",
+    "sha256": "a1d23f57976ce30e8f546f3d361a6c0b11f6c839134023184fbb8bcfd2a8e853",
+    "code_cells": 9,
+    "definitions": [
+      {
+        "name": "load_graph",
+        "code_cell": 2
+      },
+      {
+        "name": "prepare_dataset_individual_save_as_pt",
+        "code_cell": 2
+      },
+      {
+        "name": "ci_vectorized",
+        "code_cell": 8
+      },
+      {
+        "name": "mse_torch",
+        "code_cell": 8
+      },
+      {
+        "name": "pearson_torch",
+        "code_cell": 8
+      },
+      {
+        "name": "GNNNet",
+        "code_cell": 8
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 8
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 8
+      },
+      {
+        "name": "train_and_evaluate",
+        "code_cell": 8
+      },
+      {
+        "name": "plot_metrics",
+        "code_cell": 8
+      }
+    ]
+  },
+  {
+    "file": "kiba-gnn-cnn-infonce.ipynb",
+    "sha256": "f9d77c3c8e85312d8ba3e5991c8521f6defe6e19422e0fd112e1255f44b17d96",
+    "code_cells": 5,
+    "definitions": [
+      {
+        "name": "resize_all_images",
+        "code_cell": 2
+      },
+      {
+        "name": "load_graph",
+        "code_cell": 2
+      },
+      {
+        "name": "prepare_dataset_individual_save_as_pt",
+        "code_cell": 2
+      },
+      {
+        "name": "ci_vectorized",
+        "code_cell": 4
+      },
+      {
+        "name": "mse_torch",
+        "code_cell": 4
+      },
+      {
+        "name": "pearson_torch",
+        "code_cell": 4
+      },
+      {
+        "name": "GNNNet",
+        "code_cell": 4
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 4
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 4
+      },
+      {
+        "name": "train_and_evaluate",
+        "code_cell": 4
+      },
+      {
+        "name": "plot_metrics",
+        "code_cell": 4
+      }
+    ]
+  },
+  {
+    "file": "kiba-pvgraphdta.ipynb",
+    "sha256": "f9d77c3c8e85312d8ba3e5991c8521f6defe6e19422e0fd112e1255f44b17d96",
+    "code_cells": 5,
+    "definitions": [
+      {
+        "name": "resize_all_images",
+        "code_cell": 2
+      },
+      {
+        "name": "load_graph",
+        "code_cell": 2
+      },
+      {
+        "name": "prepare_dataset_individual_save_as_pt",
+        "code_cell": 2
+      },
+      {
+        "name": "ci_vectorized",
+        "code_cell": 4
+      },
+      {
+        "name": "mse_torch",
+        "code_cell": 4
+      },
+      {
+        "name": "pearson_torch",
+        "code_cell": 4
+      },
+      {
+        "name": "GNNNet",
+        "code_cell": 4
+      },
+      {
+        "name": "load_sample",
+        "code_cell": 4
+      },
+      {
+        "name": "batch_loader",
+        "code_cell": 4
+      },
+      {
+        "name": "train_and_evaluate",
+        "code_cell": 4
+      },
+      {
+        "name": "plot_metrics",
+        "code_cell": 4
+      }
+    ]
+  },
+  {
+    "file": "New Positional Encoding .ipynb",
+    "sha256": "22471fa60afe795cc9cdb593a536ce992e2f00389d5353bf523f817d639f392f",
+    "code_cells": 2,
+    "definitions": [
+      {
+        "name": "sinusoidal_encoding",
+        "code_cell": 1
+      },
+      {
+        "name": "normalize",
+        "code_cell": 1
+      }
+    ]
+  },
+  {
+    "file": "onehot+PE.ipynb",
+    "sha256": "0421791dd89d25f3f651d2db2eac04d7ee54e5b6e6cb78522021baa569728a65",
+    "code_cells": 2,
+    "definitions": [
+      {
+        "name": "sinusoidal_encoding",
+        "code_cell": 1
+      },
+      {
+        "name": "one_hot_seqs",
+        "code_cell": 1
+      },
+      {
+        "name": "normalize",
+        "code_cell": 1
+      }
+    ]
+  },
+  {
+    "file": "Positional encoding.ipynb",
+    "sha256": "bf747f3e7c6355d9cc8564096dafa8b049ce172c8426a1c79fabd10e6f88e502",
+    "code_cells": 14,
+    "definitions": [
+      {
+        "name": "human_readable",
+        "code_cell": 4
+      },
+      {
+        "name": "sinusoidal_encoding",
+        "code_cell": 5
+      },
+      {
+        "name": "compute_2d_pe",
+        "code_cell": 5
+      },
+      {
+        "name": "compute_coords",
+        "code_cell": 5
+      },
+      {
+        "name": "save_array_in_chunks",
+        "code_cell": 5
+      },
+      {
+        "name": "main",
+        "code_cell": 5
+      },
+      {
+        "name": "human_readable",
+        "code_cell": 6
+      },
+      {
+        "name": "to_uint8",
+        "code_cell": 9
+      },
+      {
+        "name": "sinusoidal_encoding",
+        "code_cell": 11
+      },
+      {
+        "name": "sinusoidal_2d_encoding",
+        "code_cell": 11
+      },
+      {
+        "name": "save_array_in_chunks",
+        "code_cell": 11
+      },
+      {
+        "name": "main",
+        "code_cell": 11
+      },
+      {
+        "name": "sinusoidal_encoding",
+        "code_cell": 13
+      },
+      {
+        "name": "sinusoidal_2d_encoding",
+        "code_cell": 13
+      },
+      {
+        "name": "create_rgb_image",
+        "code_cell": 13
+      }
+    ]
+  },
+  {
+    "file": "protein counts.ipynb",
+    "sha256": "a169506a64875b8ea48f968a450f1226006d671dba83fb5df4a704167627ea26",
+    "code_cells": 2,
+    "definitions": []
+  },
+  {
+    "file": "random image generator.ipynb",
+    "sha256": "79052ac49cc6c8c743cd7f207a9797dbb08c6592398d4ca2025d5d3a95b5b8c3",
+    "code_cells": 2,
+    "definitions": []
+  },
+  {
+    "file": "see contact mpas.ipynb",
+    "sha256": "70d4b820c34591670deaafa8a39fd47540df650abd04d2e9d8dd534adaeb7479",
+    "code_cells": 16,
+    "definitions": []
+  },
+  {
+    "file": "Untitled (2).ipynb",
+    "sha256": "fc8bb1928276af5001a5b4a332b02cb801f5babea6a0cb2007ba45972aadb366",
+    "code_cells": 3,
+    "definitions": [
+      {
+        "name": "load_graph",
+        "code_cell": 1
+      },
+      {
+        "name": "prepare_and_split_samples",
+        "code_cell": 1
+      }
+    ]
+  },
+  {
+    "file": "Untitled.ipynb",
+    "sha256": "747d2304d860ebff3ffbe085628845288f1ccd2d05e94c675b60ceec80d10f99",
+    "code_cells": 5,
+    "definitions": []
+  },
+  {
+    "file": "Untitled1 (2).ipynb",
+    "sha256": "f7f7f7da37e7306010cb6bbc097124f996a8ab82f73521cfe97009af8a24d5f8",
+    "code_cells": 2,
+    "definitions": []
+  },
+  {
+    "file": "Untitled1.ipynb",
+    "sha256": "b06c5203a81ba5f1bbe8b1282bef312e0b7f8f66a4577b2dcd1f5716e841aafb",
+    "code_cells": 4,
+    "definitions": []
+  },
+  {
+    "file": "Untitled2.ipynb",
+    "sha256": "8a9c8a871ee05413f145cfdcbfefaf8489365d1dfacf61a91fb49e343c27c5ac",
+    "code_cells": 2,
+    "definitions": [
+      {
+        "name": "plot_random_blue_channels",
+        "code_cell": 1
+      }
+    ]
+  },
+  {
+    "file": "Untitled3.ipynb",
+    "sha256": "4a62b68a633d79c53a6fd8893e8ea42dcf2b9a8a3e907b1b9861661f04f21517",
+    "code_cells": 0,
+    "definitions": []
+  },
+  {
+    "file": "Untitled4.ipynb",
+    "sha256": "769dc898ee85dd7364bb0cd65ee5a3c230644344804ba04a53c00b2b02cdd56d",
+    "code_cells": 7,
+    "definitions": [
+      {
+        "name": "plot_metrics",
+        "code_cell": 1
+      },
+      {
+        "name": "show_metrics_table",
+        "code_cell": 5
+      }
+    ]
+  }
+]
