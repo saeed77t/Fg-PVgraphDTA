@@ -25,6 +25,28 @@ The research PV default is ResNet101 with ImageNet initialization.
 Without uv, create/activate a Python 3.10 virtual environment and run
 `python -m pip install -e ".[dev]"`; then use `fgpvdta` directly.
 
+## Mandatory manual setup for research execution
+
+Installing the package is no longer sufficient to run `train`, `suite`, or
+`predict`. Those CLI commands require a local runtime profile and enforce
+Python 3.10 plus the pinned method dependencies on each invocation:
+
+```bash
+uv run fgpvdta configure-runtime --methods fg pv --output .runtime/research.json
+```
+
+Pass `--runtime-profile .runtime/research.json` explicitly to each research
+command. `fg` enables the graph baseline and FG variants; `pv` enables the PV
+family, including its graph-only ablation. A profile is bound to its interpreter
+path, Python patch version, platform and package versions. Moving/recreating an
+environment requires generating a new profile; existing files are never replaced
+automatically. `.runtime/` is excluded from Git.
+
+These are intentional setup restrictions, **not licensing or security controls**.
+The complete source and library APIs remain available. Preprocessing, statistics,
+`--plan`, parameter counting and synthetic smoke tests do not require a profile.
+See [RUNTIME_REQUIREMENTS.md](docs/RUNTIME_REQUIREMENTS.md) for exact restrictions.
+
 ## Repository map
 
 | Component | Code |
@@ -105,9 +127,9 @@ is the default. This option does not reproduce the old notebook's test-set reuse
 ## 4. Main methods and all reviewer experiments
 
 ```bash
-uv run fgpvdta train --model fggraphdta --data data/prepared/davis --output results/davis
-uv run fgpvdta train --model pvgraphdta --data data/prepared/davis --output results/davis
-uv run fgpvdta suite --name all --data data/prepared/davis --output results/davis
+uv run fgpvdta train --model fggraphdta --data data/prepared/davis --output results/davis --runtime-profile .runtime/research.json
+uv run fgpvdta train --model pvgraphdta --data data/prepared/davis --output results/davis --runtime-profile .runtime/research.json
+uv run fgpvdta suite --name all --data data/prepared/davis --output results/davis --runtime-profile .runtime/research.json
 ```
 
 Repeat with `data/prepared/kiba` and `results/kiba` for KIBA. All runs share a
@@ -132,8 +154,8 @@ they are not claimed to be historical results. See [REVIEWER_EXPERIMENTS.md](doc
 For cold-target main runs or **all ablations on cold-target splits**:
 
 ```bash
-uv run fgpvdta suite --name cold_target --data data/prepared/davis --output results/davis
-uv run fgpvdta suite --name all --cold-target --data data/prepared/davis --output results/davis
+uv run fgpvdta suite --name cold_target --data data/prepared/davis --output results/davis --runtime-profile .runtime/research.json
+uv run fgpvdta suite --name all --cold-target --data data/prepared/davis --output results/davis --runtime-profile .runtime/research.json
 ```
 
 Cold partitions group identical protein sequences together even if their IDs
@@ -146,7 +168,7 @@ Use `--plan` to list configurations without running or loading data:
 
 ```bash
 uv run fgpvdta suite --name all --data data/prepared/davis --plan
-uv run python scripts/run_all.py --data data/prepared/davis --output results/davis
+uv run python scripts/run_all.py --data data/prepared/davis --output results/davis --runtime-profile .runtime/research.json
 ```
 
 Optional TypeScript launcher (Node with TypeScript stripping support): set
@@ -165,7 +187,7 @@ or incomplete runs require a new output directory; they are never silently
 overwritten. Use the saved checkpoint for test-set prediction:
 
 ```bash
-uv run fgpvdta predict --run results/davis/methods/fggraphdta/seed_11 --data data/prepared/davis --output results/fg_reloaded.csv
+uv run fgpvdta predict --run results/davis/methods/fggraphdta/seed_11 --data data/prepared/davis --output results/fg_reloaded.csv --runtime-profile .runtime/research.json
 uv run fgpvdta parameters --suite methods --output results/model_parameters.json
 uv run fgpvdta summarize --results results/davis/fg_ablation --output results/davis/tables/fg --baseline dgraphdta
 uv run fgpvdta summarize --results results/davis/cold_target --output results/davis/tables/cold --baseline dgraphdta

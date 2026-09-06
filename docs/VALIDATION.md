@@ -3,10 +3,17 @@
 Verified on Windows with Python 3.10, torch 2.4.1, torchvision 0.19.1,
 torch-geometric 2.6.1 and RDKit 2024.3.6.
 
-Final checks: **49 tests passed**; Ruff formatting/lint checks passed; the
+Initial assembly checks: **49 tests passed**; Ruff formatting/lint checks passed; the
 `fgpvdta-1.0.0` wheel built successfully. CLI help and the TypeScript all-suite
 planning launcher passed (Node 24.18.0). Matplotlib emitted dependency
 deprecation warnings; no test failures occurred.
+
+After adding strict runtime setup, **58 tests passed** and Ruff checks passed.
+The added tests cover missing profiles, wrong Python/dependency versions,
+method-family restrictions, changed interpreters, invalid profiles and prevention
+of profile overwrites. A profile was created and validated against the actual
+local environment, and the profile-gated prediction CLI successfully loaded an
+existing synthetic FG checkpoint. Model code and dependency pins were unchanged.
 
 The checks cover:
 

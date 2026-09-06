@@ -11,6 +11,11 @@ from fgpvdta.experiments.presets import SEEDS, SUITES, variants
 def build_parser():
     parser = argparse.ArgumentParser(prog="fgpvdta")
     commands = parser.add_subparsers(dest="command", required=True)
+    runtime = commands.add_parser(
+        "configure-runtime", help="manually register a pinned environment"
+    )
+    runtime.add_argument("--methods", nargs="+", choices=("fg", "pv"), required=True)
+    runtime.add_argument("--output", required=True, help="local profile file; do not commit it")
     download = commands.add_parser("download", help="download original DeepDTA DAVIS/KIBA data")
     download.add_argument("--output", required=True)
     download.add_argument("--revision", default="master")
@@ -57,6 +62,7 @@ def build_parser():
         )
         run.add_argument("--data", required=True, help="prepared dataset directory")
         run.add_argument("--output", default="results")
+        run.add_argument("--runtime-profile", help="required for execution, not for --plan")
         if name == "suite":
             run.add_argument("--name", choices=(*SUITES, "all"), default="methods")
         else:
@@ -96,6 +102,7 @@ def build_parser():
     predict.add_argument("--data", required=True)
     predict.add_argument("--output", required=True)
     predict.add_argument("--device", default="cpu")
+    predict.add_argument("--runtime-profile", required=True)
     stats = commands.add_parser("summarize", help="tables, seed tests and paired per-target tests")
     stats.add_argument("--results", required=True)
     stats.add_argument("--output", required=True)
@@ -112,7 +119,11 @@ def build_parser():
 
 def main(argv=None):
     args = build_parser().parse_args(argv)
-    if args.command == "download":
+    if args.command == "configure-runtime":
+        from fgpvdta.runtime import configure_runtime
+
+        print(f"Runtime profile created: {configure_runtime(args.output, args.methods)}")
+    elif args.command == "download":
         from fgpvdta.data.download import download_deepdta_data
 
         download_deepdta_data(args.output, args.revision)
@@ -154,6 +165,22 @@ def main(argv=None):
         frame, _ = verify_prepared(args.data)
         print(f"Verified {len(frame)} interactions, {frame.Target_ID.nunique()} targets")
     elif args.command in {"suite", "train"}:
+        from fgpvdta.runtime import require_runtime
+
+        suites = (
+            (SUITES if args.name == "all" else (args.name,))
+            if args.command == "suite"
+            else ("methods",)
+        )
+        selections = {
+            suite: [v for v in variants(suite) if args.command == "suite" or v.name == args.model]
+            for suite in suites
+        }
+        if not args.plan:
+            require_runtime(
+                args.runtime_profile,
+                {v.family for selected in selections.values() for v in selected},
+            )
         from fgpvdta.experiments.runner import RunOptions, run_suite
 
         options = RunOptions(
@@ -162,15 +189,7 @@ def main(argv=None):
         options = replace(
             options, seeds=tuple(args.seeds), pretrained_resnet=not args.no_pretrained
         )
-        suites = (
-            (SUITES if args.name == "all" else (args.name,))
-            if args.command == "suite"
-            else ("methods",)
-        )
-        for suite in suites:
-            selected = variants(suite)
-            if args.command == "train":
-                selected = [v for v in selected if v.name == args.model]
+        for suite, selected in selections.items():
             if args.plan:
                 print(
                     json.dumps(
@@ -190,6 +209,10 @@ def main(argv=None):
 
         write_json(args.output, [parameter_counts(v) for v in variants(args.suite)])
     elif args.command == "predict":
+        from fgpvdta.runtime import require_runtime
+
+        spec = json.loads((Path(args.run) / "configuration.json").read_text())
+        require_runtime(args.runtime_profile, {spec["variant"]["family"]})
         from fgpvdta.experiments.runner import predict_checkpoint
 
         predict_checkpoint(args.run, args.data, args.output, args.device)
